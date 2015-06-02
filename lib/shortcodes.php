@@ -108,7 +108,7 @@ class Shortcodes {
 	 * @return boolean
 	 */
 	public static function unregister($classname) {
-		if(!is_subclass_of($classname, '\Sui\Shortcode', false)) {
+		if(!is_subclass_of($classname, '\Sui\Shortcode')) {
 			return false;
 		}
 		
