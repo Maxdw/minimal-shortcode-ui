@@ -1,6 +1,11 @@
 <?php
+/**
+ * Example of a custom shortcode, include this file
+ * to see it in action.
+ */
+
 if(!class_exists('\Sui\Shortcodes')) {
-	return;
+	throw new Exception('');
 }
 
 use \Sui\Shortcodes as Shortcodes;
@@ -14,7 +19,11 @@ if(!$result) {
 }
 
 /**
- * This is an example shortcode.
+ * This is an example shortcode. The tag name of the shortcode
+ * may be determined by the classname.
+ *
+ * For more information see the source code of \Sui\Shortcode
+ * at /lib/abstract/shortcode.php
  */
 class ExampleShortcodeTest extends Shortcode {
 	
@@ -54,9 +63,14 @@ class ExampleShortcodeTest extends Shortcode {
 	
 	/**
 	 * Class constructor
+	 *
+	 * Define the schema for your shortcode attributes here.
+	 * Or set a translated description for your shortcode here.
 	 */
 	public function __construct() {
 		parent::__construct();
+		
+		//$this->_description = __('translated...', '
 		
 		$this->_setSchemaAttribute('name', '', 'text');
 		$this->_setSchemaAttribute('image_id', '', 'image');
